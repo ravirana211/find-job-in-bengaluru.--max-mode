@@ -1,0 +1,58 @@
+name: Daily job digest and prep
+
+on:
+  schedule:
+    # 03:00 UTC = 08:30 IST. GitHub often starts scheduled runs late,
+    # so this lands the emails around 9 AM.
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "What to run"
+        type: choice
+        options: [run, jobs, prep, check]
+        default: run
+
+concurrency:
+  group: jobagent
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      # The job database (what was already seen and emailed) is kept between runs.
+      - name: Restore job database
+        uses: actions/cache/restore@v4
+        with:
+          path: data
+          key: jobdb-${{ github.run_id }}
+          restore-keys: jobdb-
+
+      - name: Run agent
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          HOME_ADDRESS: ${{ secrets.HOME_ADDRESS }}
+          CANDIDATE_PROFILE: ${{ secrets.CANDIDATE_PROFILE }}
+        run: python -m jobagent ${{ inputs.command || 'run' }}
+
+      - name: Save job database
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: data
+          key: jobdb-${{ github.run_id }}

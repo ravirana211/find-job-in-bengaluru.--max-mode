@@ -1,0 +1,239 @@
+# Target employers with Bengaluru product teams.
+#
+# ats:    auto       -> the agent tries Greenhouse, Lever, Ashby and SmartRecruiters
+#                       using `slugs` (or names derived from `name`) and remembers what works
+#         workday    -> needs `workday: {host, site}`
+#         none       -> no public feed; jobs arrive from job-alert emails (Phase 1b)
+# offices: Bengaluru office areas used for commute checks. Approximate - an area
+#          or tech park is enough for a peak-hour estimate. Add or fix as needed.
+# tier:   gcc | mnc | unicorn | growth | startup
+
+companies:
+  # --- Global capability centres / MNCs ---------------------------------------
+  - name: Walmart Global Tech
+    tier: gcc
+    ats: workday
+    workday: {host: walmart.wd5.myworkdayjobs.com, site: WalmartExternal}
+    offices: ["Embassy Tech Village, Outer Ring Road, Bengaluru"]
+  - name: Target
+    tier: gcc
+    ats: workday
+    workday: {host: target.wd5.myworkdayjobs.com, site: targetcareers}
+    offices: ["Manyata Tech Park, Nagavara, Bengaluru"]
+  - name: Adobe
+    tier: mnc
+    ats: workday
+    workday: {host: adobe.wd5.myworkdayjobs.com, site: external_experienced}
+    offices: ["Prestige Platina, Outer Ring Road, Bellandur, Bengaluru"]
+  - name: Salesforce
+    tier: mnc
+    ats: workday
+    workday: {host: salesforce.wd12.myworkdayjobs.com, site: External_Career_Site}
+    offices: ["Embassy Tech Square, Kadubeesanahalli, Bengaluru"]
+  - name: NVIDIA
+    tier: mnc
+    ats: workday
+    workday: {host: nvidia.wd5.myworkdayjobs.com, site: NVIDIAExternalCareerSite}
+    offices: ["Bagmane Tech Park, CV Raman Nagar, Bengaluru"]
+  - name: PayPal
+    tier: mnc
+    ats: workday
+    workday: {host: paypal.wd1.myworkdayjobs.com, site: jobs}
+    offices: ["Prestige Tech Park, Kadubeesanahalli, Bengaluru"]
+  - name: Intuit
+    tier: gcc
+    ats: workday
+    workday: {host: intuit.wd1.myworkdayjobs.com, site: Intuit}
+    offices: ["Ecospace Business Park, Bellandur, Bengaluru"]
+  - name: Visa
+    tier: mnc
+    ats: smartrecruiters
+    slugs: [Visa]
+    offices: ["Bagmane Constellation, Outer Ring Road, Bengaluru"]
+  - name: Atlassian
+    tier: mnc
+    ats: auto
+    offices: ["Indiranagar, Bengaluru"]
+  - name: Stripe
+    tier: mnc
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Databricks
+    tier: mnc
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Rubrik
+    tier: mnc
+    ats: auto
+    offices: ["Outer Ring Road, Bengaluru"]
+  - name: Okta
+    tier: mnc
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Twilio
+    tier: mnc
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Coinbase
+    tier: mnc
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Airbnb
+    tier: mnc
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Freshworks
+    tier: mnc
+    ats: smartrecruiters
+    slugs: [Freshworks]
+    offices: ["Bengaluru"]
+  - name: Postman
+    tier: unicorn
+    ats: auto
+    offices: ["Indiranagar, Bengaluru"]
+  - name: Microsoft
+    tier: mnc
+    ats: none
+    offices: ["Prestige Ferns Galaxy, Bellandur, Bengaluru"]
+  - name: Google
+    tier: mnc
+    ats: none
+    offices: ["Bagmane Tech Park, CV Raman Nagar, Bengaluru"]
+  - name: Amazon
+    tier: mnc
+    ats: none
+    offices: ["World Trade Center, Malleshwaram, Bengaluru"]
+
+  # --- Indian fintech --------------------------------------------------------
+  - name: Razorpay
+    tier: unicorn
+    ats: auto
+    slugs: [razorpaysoftwareprivatelimited, razorpay]
+    offices: ["SJR Cyber, Adugodi, Bengaluru"]
+  - name: PhonePe
+    tier: unicorn
+    ats: auto
+    offices: ["Bellandur, Outer Ring Road, Bengaluru"]
+  - name: CRED
+    tier: unicorn
+    ats: auto
+    offices: ["Indiranagar, Bengaluru"]
+  - name: Groww
+    tier: unicorn
+    ats: auto
+    offices: ["Vaishnavi Tech Park, Bellandur, Bengaluru"]
+  - name: Zeta
+    tier: unicorn
+    ats: auto
+    offices: ["Koramangala, Bengaluru"]
+  - name: Jupiter
+    tier: growth
+    ats: auto
+    offices: ["Koramangala, Bengaluru"]
+  - name: Slice
+    tier: unicorn
+    ats: auto
+    offices: ["Koramangala, Bengaluru"]
+  - name: Juspay
+    tier: unicorn
+    ats: auto
+    offices: ["Koramangala, Bengaluru"]
+  - name: M2P Fintech
+    tier: growth
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Perfios
+    tier: unicorn
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Navi
+    tier: growth
+    ats: auto
+    offices: ["Koramangala, Bengaluru"]
+  - name: Fi Money
+    tier: growth
+    ats: auto
+    slugs: [epifi, fi]
+    offices: ["Koramangala, Bengaluru"]
+
+  # --- Indian SaaS / AI ------------------------------------------------------
+  - name: Chargebee
+    tier: unicorn
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Darwinbox
+    tier: unicorn
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Whatfix
+    tier: unicorn
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Sprinklr
+    tier: mnc
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Hasura
+    tier: growth
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Leena AI
+    tier: growth
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Sarvam AI
+    tier: growth
+    ats: auto
+    slugs: [sarvam, sarvamai]
+    offices: ["Indiranagar, Bengaluru"]
+  - name: Uniphore
+    tier: unicorn
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Yellow.ai
+    tier: growth
+    ats: auto
+    slugs: [yellowai]
+    offices: ["Bengaluru"]
+  - name: Gupshup
+    tier: unicorn
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Innovaccer
+    tier: unicorn
+    ats: auto
+    offices: ["Bengaluru"]
+
+  # --- Indian consumer / commerce -------------------------------------------
+  - name: Swiggy
+    tier: unicorn
+    ats: none
+    offices: ["Embassy Tech Village, Outer Ring Road, Bengaluru"]
+  - name: Flipkart
+    tier: unicorn
+    ats: none
+    offices: ["Embassy Tech Village, Outer Ring Road, Bengaluru"]
+  - name: Meesho
+    tier: unicorn
+    ats: auto
+    offices: ["Bellandur, Outer Ring Road, Bengaluru"]
+  - name: Zepto
+    tier: unicorn
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: ShareChat
+    tier: unicorn
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Urban Company
+    tier: unicorn
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: Dream11
+    tier: unicorn
+    ats: auto
+    offices: ["Bengaluru"]
+  - name: InMobi
+    tier: unicorn
+    ats: auto
+    offices: ["Embassy Tech Village, Outer Ring Road, Bengaluru"]

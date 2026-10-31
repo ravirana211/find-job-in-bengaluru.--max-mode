@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+# Personal data and local state - never commit
+private/
+data/
+*.sqlite
+*.db
+out/
+.env
